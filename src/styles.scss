@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+a{
+    cursor: pointer;
+}
+
+h1{
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: 400
+}
+
+// [class^='col-md-']{
+//     padding-left: 0;
+// }
+
+.container{
+    .jumbotron{
+        border-radius: 0;
+        background: linear-gradient(to right, rgba(255, 255, 0, .5), rgba(0,0,0,.5)), url('./assets/images/header-img.webp');
+        color: #fff;
+        margin-bottom: 0;
+        p{
+            width: 80%
+        }
+        h1{
+            font-size: 40px;
+        }
+    }
+}
+
+.btn{
+    border-radius: 0;
+    &-lg{
+        border-radius: 0;
+    }
+}

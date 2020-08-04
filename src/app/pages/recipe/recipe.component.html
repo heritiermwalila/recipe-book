@@ -1,0 +1,15 @@
+<ng-template [ngIf]="!addRecipeStatus">
+    <div class="row">
+        <app-page-header [headerdata]="header"></app-page-header>
+    </div>
+</ng-template>
+<div class="row">
+    <router-outlet></router-outlet>
+</div>
+<div class="row">
+    <div class="col-md-8">
+        <div class="container">
+            <h1>Recipe list</h1>
+        </div>
+    </div>
+</div>
