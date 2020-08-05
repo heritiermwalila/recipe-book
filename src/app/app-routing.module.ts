@@ -4,7 +4,8 @@ import {Routes, RouterModule} from '@angular/router'
 import { RecipeComponent } from './pages/recipe/recipe.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { RecipeAddComponent } from './components/recipe-add/recipe-add.component';
+import { RecipeAddComponent } from './pages/recipe/recipe-add/recipe-add.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -23,7 +24,7 @@ const appRoutes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
   ],
   exports: [RouterModule]
 })

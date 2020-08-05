@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Recipe } from 'src/app/shared/recipe.model';
+import { RecipeService } from 'src/app/services/recipe.service';
 
 @Component({
   selector: 'app-recipe-add',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeAddComponent implements OnInit {
 
-  constructor() { }
+  constructor(private recipeServ: RecipeService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmitHandler(data: Recipe){
+    this.recipeServ.add(data);
   }
 
 }
