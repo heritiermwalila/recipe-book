@@ -2,38 +2,38 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { RecipeComponent } from './pages/recipe/recipe.component';
+import { RecipesComponent } from './pages/recipes/recipes.component';
 import { ShopComponent } from './pages/shop/shop.component';
-import { RecipeDetailComponent } from './pages/recipe/recipe-detail/recipe-detail.component';
-import { RecipeAddComponent } from './pages/recipe/recipe-add/recipe-add.component';
-import { RecipeEditComponent } from './pages/recipe/recipe-edit/recipe-edit.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { AppRoutingModule } from './app-routing.module';
-import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';
-import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { RecipeDetailComponent } from './pages/recipes/recipe-detail/recipe-detail.component';
+import { RecipeEditComponent } from './pages/recipes/recipe-edit/recipe-edit.component';
+import { RecipeAddComponent } from './pages/recipes/recipe-add/recipe-add.component';
+import { UiRecipeItemComponent } from './pages/recipes/components/ui-recipe-item/ui-recipe-item.component';
+import { UiRecipeEditComponent } from './pages/recipes/components/ui-recipe-edit/ui-recipe-edit.component';
+import { UiRecipeAddComponent } from './pages/recipes/components/ui-recipe-add/ui-recipe-add.component';
 import { DropdownDirective } from './directives/dropdown.directive';
-import { HeaderComponent } from './components/header/header.component';
-import { RecipeAddFormComponent } from './components/recipe-add/recipe-add.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { RecipeStartComponent } from './pages/recipes/recipe-start/recipe-start.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecipeComponent,
+    RecipesComponent,
     ShopComponent,
     RecipeDetailComponent,
-    RecipeAddComponent,
-    RecipeAddFormComponent,
     RecipeEditComponent,
-    NotFoundComponent,
-    RecipeItemComponent,
-    PageHeaderComponent,
+    RecipeAddComponent,
+    UiRecipeItemComponent,
+    UiRecipeEditComponent,
+    UiRecipeAddComponent,
     DropdownDirective,
-    HeaderComponent
+    NavigationComponent,
+    RecipeStartComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,31 +1,34 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Routes, RouterModule} from '@angular/router'
-import { RecipeComponent } from './pages/recipe/recipe.component';
+import {Routes, RouterModule} from '@angular/router';
+import { RecipesComponent } from './pages/recipes/recipes.component';
 import { ShopComponent } from './pages/shop/shop.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { RecipeAddComponent } from './pages/recipe/recipe-add/recipe-add.component';
-import { FormsModule } from '@angular/forms';
+import { RecipeDetailComponent } from './pages/recipes/recipe-detail/recipe-detail.component';
+import { RecipeEditComponent } from './pages/recipes/recipe-edit/recipe-edit.component';
+import { RecipeAddComponent } from './pages/recipes/recipe-add/recipe-add.component';
+import { RecipeStartComponent } from './pages/recipes/recipe-start/recipe-start.component';
 
-const appRoutes: Routes = [
+const appRouting: Routes = [
   {
     path: 'recipes',
-    component: RecipeComponent,
+    component: RecipesComponent,
     children: [
-      {path: 'add', component: RecipeAddComponent}
+      { path: '', component: RecipeStartComponent },
+      { path: 'add', component: RecipeAddComponent },
+      { path: ':id', component: RecipeDetailComponent },
+      { path: ':id/edit', component: RecipeEditComponent },
     ]
   },
-  {path: 'shop', component: ShopComponent},
-  {path: '', redirectTo: 'recipes', pathMatch:'full'},
-  {path: '**', component: NotFoundComponent}
-];
+  { path: 'shop', component: ShopComponent },
+  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+]
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRouting)
   ],
-  exports: [RouterModule]
+  exports:[RouterModule]
 })
 export class AppRoutingModule { }

@@ -5,12 +5,13 @@ import { Directive, HostBinding, HostListener } from '@angular/core';
 })
 export class DropdownDirective {
 
-  constructor() { }
 
-  @HostBinding('class.open') target = false;
+  @HostBinding('class.open') el = false;
 
   @HostListener('click') toggle(){
-    this.target = !this.target;
+    this.el = !this.el;
   }
+
+  constructor() { }
 
 }

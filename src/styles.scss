@@ -1,96 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
-a{
-    cursor: pointer;
-}
-
-h1{
-    font-size: 25px;
-    text-transform: uppercase;
-    font-weight: 400
-}
-
-[class^='col-md-']{
-    padding-left: 0;
-}
-
-.container{
-    padding-left: 0;
-    .jumbotron{
-        border-radius: 0;
-        background: linear-gradient(to right, rgba(255, 255, 0, .5), rgba(0,0,0,.5)), url('./assets/images/header-img.webp');
-        color: #fff;
-        margin-bottom: 0;
-        p{
-            width: 80%
-        }
-        h1{
-            font-size: 40px;
-        }
-    }
-}
-
-.btn{
-    border-radius: 0;
-    margin-right: 10px;
-    &-lg{
-        border-radius: 0;
-    }
-}
-
 .thumbnail{
     border-radius: 0;
-}
+    &__image{
+        width: 100%;
+        height: 200px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .caption{
 
-.recipe-item-container{
-    .row{
-        [class^='col-md-']{
-            padding-left: 0;
-            
-        }
-        .recipe-action{
-            height: 213px;
-            text-align: center;
-            padding: 20px;
-            button{
-                border: 1px solid #ccc;
-                border-radius: 50px;
-                height: 50px;
-                width: 50px;
-                box-shadow: 0px 0px 4px 4p;
-                &:focus{
-                    outline: none;
-                }
-            }
-        }
-        .list-group{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            &-item{
-                border: 0;
-                padding: 5px 15px;
-                .glyphicon{
-                    &-ok{
-                        color: #B3CBB9
-                    }
-                }
-            }
+        .glyphicon{
+            color: #337ab7;
+            font-size: 30px;
         }
     }
 }
 
-.ingredients-list{
-    .list-group-item{
-        margin-bottom: 5px;
-        &:last-child{
-            border-bottom-left-radius:0;
-            border-bottom-right-radius:0;
-        }
-        &:first-child{
-            border-bottom-left-radius:0 !important;
-            border-bottom-right-radius:0;
-        }
+.list-group-item{
+    margin-bottom: 10px;
+    &:last-child{
+        border-bottom-right-radius:0;
+        border-bottom-left-radius:0;
     }
-    
+    &:first-child{
+        border-top-left-radius:0;
+        border-top-right-radius:0;
+    }
+
+    .recipe-item{
+        display: flex;
+        height: 80px;
+        img{
+            height: 100%;
+            border-radius: 100%;
+        }
+        div{
+            padding-left: 20px;
+        }
+        
+    }
+
+    a{
+        cursor: pointer;
+        text-decoration: none !important;
+        color: inherit;
+    }
+
 }
 
+
+.form-group-list{
+    display: flex;
+    margin-bottom: 10px;
+    .form-control{
+        margin-right: 10px;
+        &:nth-child(2){
+            width: 100px;
+        }
+    }
+}
+
+.detail{
+    list-style: none;
+    padding-left: 0;
+}

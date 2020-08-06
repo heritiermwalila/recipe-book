@@ -1,59 +1,79 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { Recipe } from '../shared/recipe.model';
-import { Ingredient } from '../shared/ingredient.model';
+import { Injectable } from '@angular/core';
+import { Recipe } from '../models/recipe.model';
+import { Ingredient } from '../models/ingredient.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
 
-  public addRecipeEvent = new EventEmitter<Recipe[]>();
-  private recipes: Recipe[] = [
+  recipes: Recipe[] = [
     new Recipe(
-      '10 Minute Apple Sauce',
-      'Description for 10 Minute Apple Sauce',
+      1,
+      'Phulka Tacos Recipe',
+      'description for Bok Choy',
       [
-        new Ingredient('apple', 100),
-        new Ingredient('Onion', 12),
-      ],
-      ),
+        new Ingredient('onion', 1),
+        new Ingredient('cucumber', 4),
+        new Ingredient('green chilli', 3),
+      ]
+    ),
     new Recipe(
-      '10 Plagues Pizza',
-      'Description for 10 Plagues Pizza',
+      2,
+      'Almond And Rose Kheer Recipe',
+      'description for Almond And Rose Kheer Recipe',
       [
-        new Ingredient('pizza', 20)
-      ],
-      ),
+        new Ingredient('fat milk', 2),
+        new Ingredient('rice', 120),
+        new Ingredient('grain', 120),
+      ]
+    ),
     new Recipe(
-      '3-D Dog Cake',
-      'Description for 3-D Dog Cake',
+      3,
+      'Sugar Free Modak Recipe',
+      'description for Sugar Free Modak Recipe',
       [
-        new Ingredient('cake', 5)
-      ],
-      ),
+        new Ingredient('seedless', 400),
+        new Ingredient('almonds', 100),
+      ]
+    ),
     new Recipe(
-      '30-Second Chocolate Cake',
-      'Description for 30-Second Chocolate Cake',
+      4,
+      'Beetroot Modak Recipe',
+      'description for Beetroot Modak Recipe',
       [
-        new Ingredient('chocolate', 3)
-      ],
-      ),
+        new Ingredient('flour', 2),
+        new Ingredient('semolina', 2),
+        new Ingredient('lemon juice', 2),
+      ]
+    ),
   ]
-  addRecipe = new EventEmitter<boolean>();
 
   constructor() { }
 
+
+  // get all recipes
   getRecipes(){
     return this.recipes.slice()
   }
 
+  // get single recipe
+  getRecipe(id: number){
+    return this.recipes.find(recipe => recipe.id === id);
+  }
+
+  // add recipe
   add(recipe: Recipe){
-    const newRecipe = new Recipe(
-      recipe.name,
-      recipe.description,
-      recipe.ingredients
-    );
-    this.recipes.push(newRecipe)
-    this.addRecipeEvent.emit(this.recipes.slice());
+
+  }
+
+  // edit
+  edit(id: number, recipe: {name: string; description: string; ingredient: Ingredient[]}){
+    //
+  }
+
+  // delete
+  delete(id: number){
+
   }
 }
