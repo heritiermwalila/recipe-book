@@ -1,0 +1,21 @@
+.ingredient-edit{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    flex-shrink: inherit;
+    padding-left: 15px;
+    .form-group{
+        &:nth-child(1){
+            width: 100%;
+            margin-right: 10px;
+            
+        }
+        &:nth-child(2){
+            margin-right: 15px;
+            display: flex;
+            button{
+                margin-left: 5px;
+            }
+        }
+    }
+}

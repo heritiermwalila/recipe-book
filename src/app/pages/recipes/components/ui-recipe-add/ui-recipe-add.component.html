@@ -1,1 +1,80 @@
-<p>ui-recipe-add works!</p>
+<div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="addFrom" (ngSubmit)="submit()">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Add recipe
+                </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                formControlName="name"
+                                id="name"
+                                required
+                                >
+                        </div>
+                        <div class="form-group">
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                formControlName="imageurl"
+                                placeholder="recipe image"
+                                >
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Description</label>
+                            <textarea 
+                                formControlName="description" 
+                                id="description" 
+                                rows="3"
+                                class="form-control"
+                                required
+                                ></textarea>
+                        </div>
+                        <div class="mycontainer"  formArrayName="ingredients">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <button class="btn btn-primary" (click)="addIngredient()" type="button">Add ingredient</button>
+                                </div>
+                            </div>
+                            <div class="ingredient-group" *ngFor="let item of addFrom.get('ingredients')['controls'].reverse(); let i=index">
+                                <div class="row ingredient-form" [formGroupName]="i">
+                                    <div class="form-group">
+                                        <input 
+                                            type="text" 
+                                            class="form-control"
+                                            formControlName="name"
+                                            placeholder="Ingredient name"
+                                            required
+                                            >
+                                    </div>
+                                    <div class="form-group">
+                                        <input 
+                                            type="text" 
+                                            class="form-control"
+                                            formControlName="amount"
+                                            placeholder="amount"
+                                            required
+                                            >
+                                        <button class="btn" type="button" (click)="removeIngr(i)">Remove</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-primary" type="submit" [disabled]="!addFrom.valid">Submit</button>
+                    </div>
+                    
+                </div>
+                
+            </form>
+        </div>
+    </div>

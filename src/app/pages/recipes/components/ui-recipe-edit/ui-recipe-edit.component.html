@@ -1,1 +1,81 @@
-<p>ui-recipe-edit works!</p>
+<div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="editFrom" (ngSubmit)="onSave()">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Edit recipe {{ recipe.name  }}
+                </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                formControlName="name"
+                                id="name"
+                                >
+                        </div>
+                        <div class="form-group">
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                formControlName="imageurl"
+                                placeholder="recipe image"
+                                >
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Description</label>
+                            <textarea 
+                                formControlName="description" 
+                                id="description" 
+                                rows="3"
+                                class="form-control"
+                                ></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="button" (click)="addIng()">Add ingredient</button>
+                        </div>
+                        <div class="row" formArrayName="ingredients">
+                            <div class="ingredient-edit" *ngFor="let item of editFrom.get('ingredients')['controls']; let i = index">
+                                <div class="row" [formGroupName]="i">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input 
+                                                type="text" 
+                                                class="form-control"
+                                                formControlName="name"
+                                                placeholder="Ingredient name"
+                                                >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <input 
+                                                type="number" 
+                                                class="form-control"
+                                                formControlName="amount"
+                                                placeholder="amount"
+                                                >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <button class="btn" type="button" (click)="removeIng(i)">remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="panel-footer">
+                        <button class="btn btn-primary">Save</button>
+                        <a class="btn btn-danger" [routerLink]="['../']" >Cancel</a>
+                    </div>
+                    
+                </div>
+                
+            </form>
+        </div>
+    </div>

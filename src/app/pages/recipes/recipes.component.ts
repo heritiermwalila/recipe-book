@@ -9,14 +9,14 @@ import { Recipe } from 'src/app/models/recipe.model';
   styleUrls: ['./recipes.component.scss']
 })
 export class RecipesComponent implements OnInit {
-
-
   recipes: Recipe[];
 
-  constructor(private recipeServ: RecipeService) { }
+  constructor(private recipeServ: RecipeService) {}
 
   ngOnInit(): void {
     this.recipes = this.recipeServ.getRecipes();
+    this.recipeServ.recipeEvent.subscribe((data: Recipe[]) => {
+      this.recipes = data;
+    });
   }
-
 }

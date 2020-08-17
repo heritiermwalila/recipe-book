@@ -1,0 +1,16 @@
+.ingredient{
+    span{
+        &:nth-child(1){
+            &.badge{
+                cursor: pointer;
+                background-color: #d9534f;
+            }
+        }
+        &:nth-child(2){
+            &.badge{
+                cursor: pointer;
+                background-color: #5cb85c;
+            }
+        }
+    }
+}

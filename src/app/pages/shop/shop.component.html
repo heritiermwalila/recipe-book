@@ -1,1 +1,3 @@
-<p>shop works!</p>
+<app-ui-shop-add (onaddingredient)="onAddIngredient($event)"></app-ui-shop-add>
+
+<app-ui-shop-item [ingredients]="ingredients" (onremove)="onRemoveIngredient($event)" (onedit)="onEdit($event)"></app-ui-shop-item>

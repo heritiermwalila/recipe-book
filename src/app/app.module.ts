@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RecipesComponent } from './pages/recipes/recipes.component';
 import { ShopComponent } from './pages/shop/shop.component';
@@ -14,6 +13,17 @@ import { DropdownDirective } from './directives/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { RecipeStartComponent } from './pages/recipes/recipe-start/recipe-start.component';
+import { ShopService } from './services/shop.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UiShopAddComponent } from './pages/shop/component/ui-shop-add/ui-shop-add.component';
+import { UiShopItemComponent } from './pages/shop/component/ui-shop-item/ui-shop-item.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ErrorComponent } from './components/error/error.component';
+import { AuthInterceptor } from './interceptors/auth';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SingleRecipeResolver } from './resolvers/single-recipe';
 
 @NgModule({
   declarations: [
@@ -29,13 +39,22 @@ import { RecipeStartComponent } from './pages/recipes/recipe-start/recipe-start.
     DropdownDirective,
     NavigationComponent,
     RecipeStartComponent,
+    UiShopAddComponent,
+    UiShopItemComponent,
+    AuthComponent,
+    SpinnerComponent,
+    ErrorComponent,
+    FilterPipe
+    // FormsComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ShopService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, SingleRecipeResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

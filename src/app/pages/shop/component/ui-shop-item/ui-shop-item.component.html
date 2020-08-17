@@ -1,0 +1,16 @@
+<div class="row" >
+    <div class="col-md-12">
+        <ul class="list-group">
+            <li class="list-group-item ingredient" *ngFor="let ing of ingredients; let i=index">
+                {{ing.name}} - {{ ing.amount }}
+                
+                <span class="badge" (click)="remove(i)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </span>
+                <span class="badge" (click)="edit(i)">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
